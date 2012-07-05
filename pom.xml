@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.recipee</groupId>
 	<artifactId>Recipee</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<packaging>war</packaging>
-	<name>FooM</name>
-	<description>Managing football tournaments like the WM/EM</description>
+	<name>Recipee</name>
+	<description>Managing tasty (or not so tasty) recipes</description>
 
 	<dependencies>
 		<dependency>
