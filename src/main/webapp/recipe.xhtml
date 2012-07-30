@@ -4,12 +4,20 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Rezept "#{recipe.recipe.labelName}"</title>
+	<title>Rezept "#{recipeView.recipe.labelName}"</title>
+	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
 
 <h:body>
 
-	<h:outputText value="#{recipe.recipe.shortDescription}" />
+	<h1>#{recipeView.recipe.labelName}</h1>
+	<h:graphicImage url="http://placehold.it/350x350" />
+	<h:outputText id="desc" value="#{recipeView.recipe.shortDescription}" />
+	<h2>Ingredients</h2>
+	<p:dataList value="#{recipeView.recipe.ingredients}" var="ingr"
+		itemType="square">
+		#{ingr.metricValue}<i> #{msg[ingr.metric.name]} </i> #{ingr.label}
+	</p:dataList>
 
 </h:body>
 </html>
