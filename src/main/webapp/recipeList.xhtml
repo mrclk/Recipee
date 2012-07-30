@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Rezepte! mampf mampf</title>
+</h:head>
+
+<h:body>
+
+	<p:growl id="growl" showDetail="true" sticky="true" />
+
+	<h:form id="loadForm">
+		<p:commandButton action="#{recipeList.load}"
+			update="recipeTable, :growl" value="Load" icon="ui-icon-check"
+			style="margin:5" />
+
+		<p:dataTable value="#{recipeList.recipeList}" var="recipe"
+			id="recipeTable" rowKey="#{recipe.labelName}">
+
+			<p:column>
+				<f:facet name="header">Name</f:facet>
+				<h:outputLink value="recipe.xhtml">
+					<h:outputText value="#{recipe.labelName}" />
+					<f:param name="id" value="#{recipe.id}" />
+				</h:outputLink>
+			</p:column>
+			<p:column>
+				<f:facet name="header">Pic</f:facet>
+				<h:outputText value="#{recipe.picId}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Description</f:facet>
+				<h:outputText value="#{recipe.shortDescription}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header"># of Ingredients</f:facet>
+				<h:outputText value="#{recipe.ingredients.size()}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Ingredients</f:facet>
+				<h:outputText value="#{recipe.ingredients}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
