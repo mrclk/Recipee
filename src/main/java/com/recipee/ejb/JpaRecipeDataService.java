@@ -34,7 +34,7 @@ public class JpaRecipeDataService implements GenericDataService<Recipe> {
 			withIngredientsQuery.setParameter("ingreds", ingredient.getLabel());
 		}
 		List<Recipe> recipes = withIngredientsQuery.getResultList();
-		log.debug("Recipes with the ingredients ({}) found: {}", ingredients, recipes.size());
+		log.debug("{} recipes with the ingredients ({}) found.", recipes.size(), ingredients);
 		return null;
 	}
 
